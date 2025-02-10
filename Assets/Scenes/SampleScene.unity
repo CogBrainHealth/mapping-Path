@@ -12053,7 +12053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95704ac3b9b6a402ba2c57d7cc6ea5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDifficulty: 1
+  currentDifficulty: 0
   pathGenerator: {fileID: 214811229}
   touchControl: {fileID: 1573187159}
   timer: {fileID: 1155503267}
