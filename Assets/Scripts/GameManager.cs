@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
                 pathGenerator.isMap3 = false;
                 pathGenerator.mapSize = 2;
                 pathGenerator.pathLength = 4;
+                pathGenerator.endPoint.transform.localScale = new Vector3(0.2f, 0.2f, 1);
                 Camera.main.transform.position = new Vector3(0, 0.5f, -10);
                 Camera.main.orthographicSize = 2.6f;
                 pathDisplayTime = 1f;
@@ -96,6 +97,7 @@ public class GameManager : MonoBehaviour
                 pathGenerator.isMap3 = true;
                 pathGenerator.mapSize = 3; // 다시 생각 
                 pathGenerator.pathLength = 5;
+                pathGenerator.endPoint.transform.localScale = new Vector3(0.3f, 0.3f, 1);
                 Camera.main.transform.position = new Vector3(1.5f, 2.2f, -10);
                 Camera.main.orthographicSize = 3.8f;
                 pathDisplayTime = 1f;
@@ -110,6 +112,7 @@ public class GameManager : MonoBehaviour
                 pathGenerator.isMap3 = false;
                 pathGenerator.mapSize = 4;
                 pathGenerator.pathLength = 7;
+                pathGenerator.endPoint.transform.localScale = new Vector3(0.5f, 0.5f, 1);
                 Camera.main.transform.position = new Vector3(0, 0.7f, -10);
                 Camera.main.orthographicSize = 5f;
                 pathDisplayTime = 2f;

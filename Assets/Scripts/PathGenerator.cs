@@ -16,8 +16,8 @@ public class pathGenerator : MonoBehaviour
 
     // 경로 그릴 애들
     public LineRenderer lineRenderer;
-    GameObject startPoint;
-    GameObject endPoint;
+    public GameObject startPoint;
+    public GameObject endPoint;
 
     void Awake()
     {
