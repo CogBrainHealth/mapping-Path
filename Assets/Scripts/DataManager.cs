@@ -34,34 +34,27 @@ public class DataManager : MonoBehaviour
     public string nickName;
     public string Age;
     public string Gender;
+    public Dictionary<int, List<List<Vector2Int>>> userPaths
+                  = new Dictionary<int, List<List<Vector2Int>>>();// 입력 경로 저장
 
     public List<StageData> stageDataList = new List<StageData>(); // 스테이지별 데이터 리스트
     public StageData currentStageData; // 현재 스테이지 데이터 객체
 
-    void Start()
-    {
-        //// 화면이 확대되지 않도록 설정
-        //if (TouchScreenKeyboard.isSupported)
-        //{
-        //    TouchScreenKeyboard.hideInput = true;
-        //}
-    }
-
-    public void Submit()
-    {
-        nickName = nickNameInput.text;
-        Age = AgeInput.text;
-        Toggle SellectedGender = GenderInput.ActiveToggles().FirstOrDefault();
-        if (SellectedGender == null)
-        {
-            Debug.LogError("활성화된 Toggle이 없습니다. 성별을 선택하세요.");
-            Gender = "None";
-        }
-        else
-        {
-            Gender = SellectedGender.name;
-        }
-    }
+    //public void Submit()
+    //{
+    //    nickName = nickNameInput.text;
+    //    Age = AgeInput.text;
+    //    Toggle SellectedGender = GenderInput.ActiveToggles().FirstOrDefault();
+    //    if (SellectedGender == null)
+    //    {
+    //        Debug.LogError("활성화된 Toggle이 없습니다. 성별을 선택하세요.");
+    //        Gender = "None";
+    //    }
+    //    else
+    //    {
+    //        Gender = SellectedGender.name;
+    //    }
+    //}
 
     // 현재 스테이지 데이터를 반환
     public StageData GetCurrentStageData(int stageIndex)
@@ -97,5 +90,17 @@ public class DataManager : MonoBehaviour
     {
         if (currentStageData != null)
             currentStageData.attempts++;
+    }
+
+    public void SaveInput(int curQuest, List<Vector2Int> userPath)
+    {
+        if (!userPaths.ContainsKey(curQuest))
+        {
+            // 새로운 문제 번호라면 초기화
+            userPaths[curQuest] = new List<List<Vector2Int>>();
+        }
+
+        // 사용자의 경로를 추가
+        userPaths[curQuest].Add(new List<Vector2Int>(userPath)); // 깊은 복사
     }
 }

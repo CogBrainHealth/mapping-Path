@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TouchControl : MonoBehaviour
 {
     public LineRenderer lineRenderer; // 사용자가 그린 정보 시각적 표현 
     public GameManager gameManager; // 사용자 입력 정보 전달 용도 참조 
-    public pathGenerator pathGenerator; // 사용자가 입력 시작 시에 정답 경로 지우는 용도로 참조 
-
+    public pathGenerator pathGenerator; // 사용자가 입력 시작 시에 정답 경로 지우는 용도로 참조
+    
     public bool isInputActive = false; // 입력 중인지 여부 
     public float detectionRadius = 0.5f; // Circle을 감지할 거리
 
@@ -57,7 +58,7 @@ public class TouchControl : MonoBehaviour
         {
             gameManager.incorrectPop.SetActive(false);
             // pathGenerator.HidePath(); 아예 입력 못하게 
-            StartInput(touchPos); // 입력 시작 처리
+            StartInput(); // 입력 시작 처리
         }
         else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary) // 터치가 이동하거나 화면에 손가락을 유지할 경우 
         {
@@ -74,7 +75,7 @@ public class TouchControl : MonoBehaviour
         {
             gameManager.incorrectPop.SetActive(false);
             // pathGenerator.HidePath();
-            StartInput(mousePos); // 입력 시작 처리 
+            StartInput(); // 입력 시작 처리 
         }
         else if (Input.GetMouseButton(0)) // 마우스 드래그 중인 경우 
         {
@@ -83,7 +84,7 @@ public class TouchControl : MonoBehaviour
     }
 
     // 입력 시작 처리 
-    private void StartInput(Vector2 startPosition)
+    private void StartInput()
     {
         isInputActive = true;
         userPath.Clear();
@@ -98,6 +99,7 @@ public class TouchControl : MonoBehaviour
         {
             lineRenderer.positionCount++; // 점 개수 증가
             lineRenderer.SetPosition(lineRenderer.positionCount - 1, position); // 새로운 점 위치 설정
+            pathGenerator.userPoint.transform.localPosition = position;
 
             // userPath 업데이트
             foreach (CircleHandler circle in circlesList)

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq; // Count 함수 사용을 위해 필요
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -79,13 +78,17 @@ public class GameManager : MonoBehaviour
                 Map3.SetActive(false);
                 Map4.SetActive(false);
                 Map6.SetActive(false);
+
                 pathGenerator.isMap3 = false;
                 pathGenerator.mapSize = 2;
                 pathGenerator.pathLength = 4;
-                pathGenerator.endPoint.transform.localScale = new Vector3(0.2f, 0.2f, 1);
-                Camera.main.transform.position = new Vector3(0, 0.5f, -10);
-                Camera.main.orthographicSize = 2.6f;
-                pathDisplayTime = 1f;
+                pathGenerator.startPoint.transform.localScale = new Vector3(0.2f, 0.2f, 1);
+                pathGenerator.userPoint.transform.localScale = new Vector3(0.4f, 0.4f, 1);
+                pathGenerator.endPoint.transform.localScale = new Vector3(0.3f, 0.3f, 1);
+
+                Camera.main.transform.position = new Vector3(0, 0.7f, -10);
+                Camera.main.orthographicSize = 3f;
+                pathDisplayTime = 0.8f;
                 Complexity = 1;
                 break;
 
@@ -94,13 +97,17 @@ public class GameManager : MonoBehaviour
                 Map3.SetActive(true);
                 Map4.SetActive(false);
                 Map6.SetActive(false);
+
                 pathGenerator.isMap3 = true;
                 pathGenerator.mapSize = 3; // 다시 생각 
                 pathGenerator.pathLength = 5;
-                pathGenerator.endPoint.transform.localScale = new Vector3(0.3f, 0.3f, 1);
-                Camera.main.transform.position = new Vector3(1.5f, 2.2f, -10);
-                Camera.main.orthographicSize = 3.8f;
-                pathDisplayTime = 1f;
+                pathGenerator.startPoint.transform.localScale = new Vector3(0.3f, 0.3f, 1);
+                pathGenerator.userPoint.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+                pathGenerator.endPoint.transform.localScale = new Vector3(0.4f, 0.4f, 1);
+
+                Camera.main.transform.position = new Vector3(1.5f, 2.4f, -10);
+                Camera.main.orthographicSize = 4.2f;
+                pathDisplayTime = 0.9f;
                 Complexity = 2;
                 break;
 
@@ -112,10 +119,12 @@ public class GameManager : MonoBehaviour
                 pathGenerator.isMap3 = false;
                 pathGenerator.mapSize = 4;
                 pathGenerator.pathLength = 7;
+                pathGenerator.startPoint.transform.localScale = new Vector3(0.4f, 0.4f, 1);
+                pathGenerator.userPoint.transform.localScale = new Vector3(0.6f, 0.6f, 1);
                 pathGenerator.endPoint.transform.localScale = new Vector3(0.5f, 0.5f, 1);
-                Camera.main.transform.position = new Vector3(0, 0.7f, -10);
-                Camera.main.orthographicSize = 5f;
-                pathDisplayTime = 2f;
+                Camera.main.transform.position = new Vector3(0, 1.2f, -10);
+                Camera.main.orthographicSize = 5.5f;
+                pathDisplayTime = 1f;
                 Complexity = 3;
                 break;
 
@@ -172,7 +181,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("모든 문제를 완료했습니다.");
-            GameExit(); 
+            GameComplete(); 
         }
     }
 
@@ -195,6 +204,7 @@ public class GameManager : MonoBehaviour
         if (!isGameOver)
         {
             dataManager.OnUserAttempt(); // 시도 횟수 증가
+            dataManager.SaveInput(currentQuestion, userPath); // 사용자 입력 경로 저장
 
             if (PathsMatch(userPath, correctPath))
             {
@@ -207,6 +217,8 @@ public class GameManager : MonoBehaviour
                 Debug.Log("오답!");
                 // 재시도 로직 또는 다른 처리
                 touchControl.lineRenderer.positionCount = 0;
+                pathGenerator.userPoint.transform.localPosition
+                    = pathGenerator.startPoint.transform.localPosition;
                 dataManager.OnIncorrectAnswer();
                 incorrectPop.SetActive(true);
             }
@@ -242,13 +254,8 @@ public class GameManager : MonoBehaviour
             //avgErrors += dataManager.stageDataList[i].errors;
             avgTiming += dataManager.stageDataList[i].takenTime;
         }
-        //avgErrors /= totalQuestions;
-        avgTiming /= totalQuestions; // 걸린 시간 평균 
 
-        // 걸린 시간 평가
-        //if (avgTiming <= 2) avgTiming = 0;
-        //else if (avgTiming <= 3) avgTiming = 10;
-        //else avgTiming = 20;
+        avgTiming /= totalQuestions; // 걸린 시간 평균 
 
         Debug.Log($"{correctCount}");
         Debug.Log($"{accuracy} / {avgTiming}");
@@ -256,7 +263,7 @@ public class GameManager : MonoBehaviour
         return score;
     }
     
-    public void GameExit()
+    public void GameComplete()
     {
         Debug.Log("게임 종료");
 
@@ -268,20 +275,30 @@ public class GameManager : MonoBehaviour
         pathGenerator.HidePoint();
 
         gameOutroPanel.SetActive(true);
-        //scoreText.text = $"{Scoring():F1}";
-        Scoring();
-        string scoreTextContent = $"닉네임: {dataManager.nickName}\n" +
-                                  $"나이: {dataManager.Age}" +
-                                  $" / 성별: {dataManager.Gender}\n\n" +
-                                  $"정답률: {accuracy}\n" +
-                                  $"avgTime: {avgTiming}\n\n";
-        for (int i = 0; i < totalQuestions; i++)
-        {
-            // scoreTextContent += $"Q{i+1}: {dataManager.stageDataList[i].attempts} | " +
-               scoreTextContent += $"Q{i + 1} 걸린 시간: {dataManager.stageDataList[i].takenTime}\n";
-        }
 
-        scoreText.text = scoreTextContent;
+        //scoreText.text = $"{Scoring():F1}";
+        //Scoring();
+        //string scoreTextContent = $"닉네임: {dataManager.nickName}\n" +
+        //                          $"나이: {dataManager.Age}" +
+        //                          $" / 성별: {dataManager.Gender}\n\n" +
+        //                          $"정답률: {accuracy}\n" +
+        //                          $"avgTime: {avgTiming}\n\n";
+        //for (int i = 0; i < totalQuestions; i++)
+        //{
+        //    // scoreTextContent += $"Q{i+1}: {dataManager.stageDataList[i].attempts} | " +
+        //       scoreTextContent += $"Q{i + 1} 걸린 시간: {dataManager.stageDataList[i].takenTime}\n";
+        //}
+
+        //scoreText.text = scoreTextContent;
+
+        foreach (var kvp in dataManager.userPaths)
+        {
+            Debug.Log($"문제 {kvp.Key}:");
+            foreach (var path in kvp.Value)
+            {
+                Debug.Log("경로: " + string.Join(" -> ", path));
+            }
+        }
 
         isGameOver = true; // 마지막 문제에서 시간초과 시 또 호출 되는 것을 방지
         pathGenerator.gameObject.SetActive(false);
@@ -289,8 +306,8 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void TestExit()
+    public void Exit()
     {
-
+        Application.Quit();
     }
 }

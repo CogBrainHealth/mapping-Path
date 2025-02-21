@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class pathGenerator : MonoBehaviour
 {
@@ -11,43 +12,41 @@ public class pathGenerator : MonoBehaviour
     public bool isMap3; // 3X3인 경우 경로 변;
 
     List<Vector2Int> path = new List<Vector2Int>(); // 경로 리스트
+    List<Vector2Int> lastPath; // 이전 경로 리스트 -> 중복 방지
 
-    Vector2Int currentPosition; // 현재 위치
+    Vector2Int currentPosition; // 현재 위치s
 
     // 경로 그릴 애들
     public LineRenderer lineRenderer;
     public GameObject startPoint;
+    public GameObject userPoint;
     public GameObject endPoint;
 
     void Awake()
     {
         // 오브젝트 찾기
         startPoint = GameObject.Find("StartPoint");
+        userPoint = GameObject.Find("UserPoint");
         endPoint = GameObject.Find("EndPoint");
         lineRenderer = GetComponent<LineRenderer>();
     }
 
     public List<Vector2Int> GeneratePath()
     {
-        //Debug.Log("호출");
-        if (gameManager.currentQuestion > 0)
-        {
-
-        }
         while (true) // 유효한 경로 생성 못했을 경우 다시 검색하기 위해 
         {
-            // 경로 초기화
+            // 경로 저장 및 초기화
+            lastPath = new List<Vector2Int>(path);
+            Debug.Log("이전 경로: " + string.Join(" -> ", lastPath));
             path.Clear();
 
             // 시작 위치 초기화
             InitStartPosition();
             path.Add(currentPosition);
-            // Debug.Log($"시작 위치: {currentPosition}");
 
             // 지도 초기화
-            //Debug.Log("지도 초기화 시작");
             startPoint.transform.localPosition = new Vector2(currentPosition.x, currentPosition.y);
-            //Debug.Log("메롱띠");
+            userPoint.transform.localPosition = new Vector2(currentPosition.x, currentPosition.y);
             lineRenderer.positionCount = 1; // 시작점 포함
             lineRenderer.SetPosition(0, new Vector2(currentPosition.x, currentPosition.y));
 
@@ -62,8 +61,7 @@ public class pathGenerator : MonoBehaviour
                 {
                     Debug.LogWarning("유효한 경로를 찾지 못했습니다. 경로 생성을 다시 시작합니다.");
                     isValidPath = false;
-                    break;
-
+                    break; // (1)로 이동
                 }
 
                 // 유효한 경로가 있을 경우 -> true -> possibleMove 중 랜덤으로 nextMove에 할당 됨
@@ -75,7 +73,7 @@ public class pathGenerator : MonoBehaviour
                 lineRenderer.SetPosition(lineRenderer.positionCount - 1, new Vector2(currentPosition.x, currentPosition.y));
             }
 
-            if (isValidPath)
+            if (isValidPath && !path.SequenceEqual(lastPath)) // (1)
             {
                 endPoint.transform.localPosition = new Vector2(currentPosition.x, currentPosition.y);
                 Debug.Log("정답 경로: " + string.Join(" -> ", path));
@@ -158,6 +156,7 @@ public class pathGenerator : MonoBehaviour
     public void HidePoint()
     {
         startPoint.SetActive(false);
+        userPoint.SetActive(false);
         endPoint.SetActive(false);
     }
 }
