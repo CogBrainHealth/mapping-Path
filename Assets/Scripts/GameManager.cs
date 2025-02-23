@@ -20,11 +20,13 @@ public class GameManager : MonoBehaviour
     public GameObject Map6;
 
     public Animator gameIntroPanel;
+    public GameObject userPathData;
     public GameObject gameOutroPanel;
     public GameObject incorrectPop;
 
     public TextMeshProUGUI questionStatusText;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI pathText;
 
     public float totalQuestions = 10; // 총 문제 수
 
@@ -273,32 +275,37 @@ public class GameManager : MonoBehaviour
         Map4.SetActive(false);
         Map6.SetActive(false);
         pathGenerator.HidePoint();
+        userPathData.SetActive(true);
 
-        gameOutroPanel.SetActive(true);
+        scoreText.text = $"{Scoring():F1}";
+        Scoring();
 
-        //scoreText.text = $"{Scoring():F1}";
-        //Scoring();
-        //string scoreTextContent = $"닉네임: {dataManager.nickName}\n" +
-        //                          $"나이: {dataManager.Age}" +
-        //                          $" / 성별: {dataManager.Gender}\n\n" +
-        //                          $"정답률: {accuracy}\n" +
-        //                          $"avgTime: {avgTiming}\n\n";
-        //for (int i = 0; i < totalQuestions; i++)
-        //{
-        //    // scoreTextContent += $"Q{i+1}: {dataManager.stageDataList[i].attempts} | " +
-        //       scoreTextContent += $"Q{i + 1} 걸린 시간: {dataManager.stageDataList[i].takenTime}\n";
-        //}
+        string scoreTextContent = $"닉네임: {dataManager.nickName}\n" +
+                                  $"나이: {dataManager.Age}" +
+                                  $" / 성별: {dataManager.Gender}\n\n" +
+                                  $"정답률: {accuracy}\n" +
+                                  $"avgTime: {avgTiming}\n\n";
+        string pathTextContent = "";
 
-        //scoreText.text = scoreTextContent;
+        for (int i = 0; i < totalQuestions; i++)
+        {
+            // scoreTextContent += $"Q{i+1}: {dataManager.stageDataList[i].attempts} | " +
+            scoreTextContent += $"Q{i+1} 걸린 시간: {dataManager.stageDataList[i].takenTime}\n";
+        }
 
         foreach (var kvp in dataManager.userPaths)
         {
             Debug.Log($"문제 {kvp.Key}:");
+            pathTextContent += $"문제{kvp.Key}\n";
             foreach (var path in kvp.Value)
             {
                 Debug.Log("경로: " + string.Join(" -> ", path));
+                pathTextContent += $"경로: {string.Join("-> ", path)}\n";
             }
         }
+
+        scoreText.text = scoreTextContent;
+        pathText.text = pathTextContent;
 
         isGameOver = true; // 마지막 문제에서 시간초과 시 또 호출 되는 것을 방지
         pathGenerator.gameObject.SetActive(false);

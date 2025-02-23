@@ -40,21 +40,21 @@ public class DataManager : MonoBehaviour
     public List<StageData> stageDataList = new List<StageData>(); // 스테이지별 데이터 리스트
     public StageData currentStageData; // 현재 스테이지 데이터 객체
 
-    //public void Submit()
-    //{
-    //    nickName = nickNameInput.text;
-    //    Age = AgeInput.text;
-    //    Toggle SellectedGender = GenderInput.ActiveToggles().FirstOrDefault();
-    //    if (SellectedGender == null)
-    //    {
-    //        Debug.LogError("활성화된 Toggle이 없습니다. 성별을 선택하세요.");
-    //        Gender = "None";
-    //    }
-    //    else
-    //    {
-    //        Gender = SellectedGender.name;
-    //    }
-    //}
+    public void Submit()
+    {
+        nickName = nickNameInput.text;
+        Age = AgeInput.text;
+        Toggle SellectedGender = GenderInput.ActiveToggles().FirstOrDefault();
+        if (SellectedGender == null)
+        {
+            Debug.LogError("활성화된 Toggle이 없습니다. 성별을 선택하세요.");
+            Gender = "None";
+        }
+        else
+        {
+            Gender = SellectedGender.name;
+        }
+    }
 
     // 현재 스테이지 데이터를 반환
     public StageData GetCurrentStageData(int stageIndex)
