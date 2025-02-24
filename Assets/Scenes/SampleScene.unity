@@ -731,7 +731,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -841,6 +841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &69383448
 Rigidbody2D:
   serializedVersion: 5
@@ -1538,7 +1539,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: -3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -1648,6 +1649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &152189197
 Rigidbody2D:
   serializedVersion: 5
@@ -1841,7 +1843,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2, y: 3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -1951,6 +1953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: -2, y: 3}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &165054947
 Rigidbody2D:
   serializedVersion: 5
@@ -2095,7 +2098,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1, y: -3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -2205,6 +2208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &200327753
 Rigidbody2D:
   serializedVersion: 5
@@ -2279,6 +2283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1192240336}
   timer: {fileID: 1155503267}
+  circleHandler: {fileID: 1140222575}
   pathLength: 0
   mapSize: 0
   isMap3: 0
@@ -4169,7 +4174,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -4279,6 +4284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &520940689
 Rigidbody2D:
   serializedVersion: 5
@@ -6083,7 +6089,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2, y: -3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -6193,6 +6199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &675534949
 Rigidbody2D:
   serializedVersion: 5
@@ -6552,7 +6559,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: 3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -6662,6 +6669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &767795682
 Rigidbody2D:
   serializedVersion: 5
@@ -7029,7 +7037,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -7139,6 +7147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &779161782
 Rigidbody2D:
   serializedVersion: 5
@@ -7196,7 +7205,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: 1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -7306,6 +7315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &786762275
 Rigidbody2D:
   serializedVersion: 5
@@ -7363,7 +7373,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: 1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -7473,6 +7483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &796404558
 Rigidbody2D:
   serializedVersion: 5
@@ -7530,7 +7541,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: -3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -7640,6 +7651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &805400094
 Rigidbody2D:
   serializedVersion: 5
@@ -7682,7 +7694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &813695301
 Transform:
   m_ObjectHideFlags: 0
@@ -7777,7 +7789,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: -1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -7887,6 +7899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &825275956
 Rigidbody2D:
   serializedVersion: 5
@@ -7944,7 +7957,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -8054,6 +8067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &843107969
 Rigidbody2D:
   serializedVersion: 5
@@ -8143,7 +8157,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: 2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -8253,6 +8267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &864182045
 Rigidbody2D:
   serializedVersion: 5
@@ -8756,7 +8771,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1, y: 1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -8866,6 +8881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: -1, y: 1}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &890689825
 Rigidbody2D:
   serializedVersion: 5
@@ -9010,7 +9026,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -9120,6 +9136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &900794001
 Rigidbody2D:
   serializedVersion: 5
@@ -9310,7 +9327,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2, y: -2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -9420,6 +9437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &948953239
 Rigidbody2D:
   serializedVersion: 5
@@ -9513,7 +9531,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -9623,6 +9641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &958960468
 Rigidbody2D:
   serializedVersion: 5
@@ -9680,7 +9699,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1, y: 3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -9790,6 +9809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: -1, y: 3}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &967510660
 Rigidbody2D:
   serializedVersion: 5
@@ -9934,7 +9954,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: 3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -10044,6 +10064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: -3, y: 3}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &997548651
 Rigidbody2D:
   serializedVersion: 5
@@ -10238,7 +10259,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: 2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -10348,6 +10369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1017333819
 Rigidbody2D:
   serializedVersion: 5
@@ -10405,7 +10427,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -10515,6 +10537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1046350510
 Rigidbody2D:
   serializedVersion: 5
@@ -10659,7 +10682,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3, y: 2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -10769,6 +10792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1065269505
 Rigidbody2D:
   serializedVersion: 5
@@ -10962,7 +10986,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: -2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -11072,6 +11096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1084303543
 Rigidbody2D:
   serializedVersion: 5
@@ -11205,7 +11230,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: 3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -11315,6 +11340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1133388782
 Rigidbody2D:
   serializedVersion: 5
@@ -11342,6 +11368,53 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1140222574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1140222576}
+  - component: {fileID: 1140222575}
+  m_Layer: 0
+  m_Name: CircleHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1140222575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140222574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b534f457360474085199c67eae088e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coordinates: {x: 0, y: 0}
+  touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 813695301}
+--- !u!4 &1140222576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140222574}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.051252134, y: -0.25828195, z: -0.63744134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1151687871
 GameObject:
   m_ObjectHideFlags: 0
@@ -11565,7 +11638,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: -1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -11675,6 +11748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1167385009
 Rigidbody2D:
   serializedVersion: 5
@@ -11969,7 +12043,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3, y: 3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -12079,6 +12153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1172694771
 Rigidbody2D:
   serializedVersion: 5
@@ -12136,7 +12211,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3, y: 1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -12246,6 +12321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1179580775
 Rigidbody2D:
   serializedVersion: 5
@@ -12303,7 +12379,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3, y: -3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -12413,6 +12489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1192148103
 Rigidbody2D:
   serializedVersion: 5
@@ -12539,7 +12616,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -12649,6 +12726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1211379068
 Rigidbody2D:
   serializedVersion: 5
@@ -13101,7 +13179,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: 1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -13211,6 +13289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1248327097
 Rigidbody2D:
   serializedVersion: 5
@@ -13268,7 +13347,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3, y: -2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -13378,6 +13457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1296970178
 Rigidbody2D:
   serializedVersion: 5
@@ -13435,7 +13515,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -13545,6 +13625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1306374520
 Rigidbody2D:
   serializedVersion: 5
@@ -13883,7 +13964,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2, y: -1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -13993,6 +14074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1369693045
 Rigidbody2D:
   serializedVersion: 5
@@ -14050,7 +14132,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -14160,6 +14242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1402164346
 Rigidbody2D:
   serializedVersion: 5
@@ -14576,7 +14659,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3, y: -1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -14686,6 +14769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1432603122
 Rigidbody2D:
   serializedVersion: 5
@@ -14822,7 +14906,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: -3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -14932,6 +15016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1460573126
 Rigidbody2D:
   serializedVersion: 5
@@ -15295,7 +15380,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2, y: 2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -15405,6 +15490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1493628093
 Rigidbody2D:
   serializedVersion: 5
@@ -15636,7 +15722,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2, y: 1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -15746,6 +15832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1532661401
 Rigidbody2D:
   serializedVersion: 5
@@ -16275,7 +16362,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -16385,6 +16472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1665570108
 Rigidbody2D:
   serializedVersion: 5
@@ -16887,7 +16975,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1, y: -1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -16997,6 +17085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1695975480
 Rigidbody2D:
   serializedVersion: 5
@@ -18493,7 +18582,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1, y: -2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -18603,6 +18692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1906483889
 Rigidbody2D:
   serializedVersion: 5
@@ -18747,7 +18837,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: -2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -18857,6 +18947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1972742154
 Rigidbody2D:
   serializedVersion: 5
@@ -19050,7 +19141,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: -2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -19160,6 +19251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1989634083
 Rigidbody2D:
   serializedVersion: 5
@@ -19217,7 +19309,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: -1, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -19327,6 +19419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &1996250096
 Rigidbody2D:
   serializedVersion: 5
@@ -19607,7 +19700,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: 2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -19717,6 +19810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &2027751972
 Rigidbody2D:
   serializedVersion: 5
@@ -20027,7 +20121,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -20137,6 +20231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &2092116264
 Rigidbody2D:
   serializedVersion: 5
@@ -20453,7 +20548,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -20563,6 +20658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &2113403684
 Rigidbody2D:
   serializedVersion: 5
@@ -20756,7 +20852,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1, y: 2, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 813695301}
@@ -20866,6 +20962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   touchControl: {fileID: 1573187159}
+  detectCircle: {fileID: 0}
 --- !u!50 &2135089571
 Rigidbody2D:
   serializedVersion: 5
@@ -20902,6 +20999,7 @@ SceneRoots:
   - {fileID: 318884421}
   - {fileID: 1573187158}
   - {fileID: 214811227}
+  - {fileID: 1140222576}
   - {fileID: 227732066}
   - {fileID: 1874280682}
   - {fileID: 119423407}

@@ -6,6 +6,7 @@ public class pathGenerator : MonoBehaviour
 {
     public GameManager gameManager;
     public Timer timer;
+    public CircleHandler circleHandler;
 
     public int pathLength; // 경로의 길이
     public int mapSize; // 지도의 크기
@@ -33,6 +34,7 @@ public class pathGenerator : MonoBehaviour
 
     public List<Vector2Int> GeneratePath()
     {
+        circleHandler.Smaller();
         while (true) // 유효한 경로 생성 못했을 경우 다시 검색하기 위해 
         {
             // 경로 저장 및 초기화
@@ -71,6 +73,9 @@ public class pathGenerator : MonoBehaviour
                 // 화면 경로에 새 점 추가
                 lineRenderer.positionCount++;
                 lineRenderer.SetPosition(lineRenderer.positionCount - 1, new Vector2(currentPosition.x, currentPosition.y));
+
+                // 해당 경로 원 크기 늘리기
+                circleHandler.Bigger(currentPosition.x, currentPosition.y);
             }
 
             if (isValidPath && !path.SequenceEqual(lastPath)) // (1)
