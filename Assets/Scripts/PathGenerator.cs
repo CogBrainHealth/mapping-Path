@@ -8,7 +8,7 @@ public class pathGenerator : MonoBehaviour
     public Timer timer;
     public CircleHandler circleHandler;
 
-    public int pathLength; // 경로의 길이
+    public float pathLength; // 경로의 길이
     public int mapSize; // 지도의 크기
     public bool isMap3; // 3X3인 경우 경로 변;
 

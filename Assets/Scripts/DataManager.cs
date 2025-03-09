@@ -10,6 +10,7 @@ public class StageData
 {
     public int attempts; // 시도 횟수
     public int errors; // 오류 입력 횟수
+    public float accuracy; // 정확도
     public bool isCorrect; // 정답 여부
     public float takenTime; // 정답을 맞췄을 때 소요 시간
 
@@ -17,6 +18,7 @@ public class StageData
     {
         attempts = 0;
         errors = 0;
+        accuracy = 0;
         isCorrect = false;
         takenTime = 0f;
     }
@@ -78,12 +80,15 @@ public class DataManager : MonoBehaviour
             currentStageData.isCorrect = true;
             currentStageData.takenTime = timer.timerSlider.maxValue - timer.timerSlider.value;
         }
+        currentStageData.accuracy = 100;
     }
 
-    public void OnIncorrectAnswer()
+    public void OnIncorrectAnswer(float accuracy)
     {
         if (currentStageData != null)
             currentStageData.errors++; // attempts 개수랑 같은가
+        currentStageData.accuracy = accuracy;
+        Debug.Log("정확도: " + accuracy);
     }    
 
     public void OnUserAttempt()
