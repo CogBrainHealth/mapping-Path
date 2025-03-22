@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject userPathData;
     public GameObject gameOutroPanel;
     public GameObject incorrectPop;
+    public Scrollbar scrollbar;
 
     public TextMeshProUGUI questionStatusText;
     public TextMeshProUGUI scoreText;
@@ -40,7 +41,10 @@ public class GameManager : MonoBehaviour
 
     public int currentQuestion = 0; // 현재 문제 번호
 
-    public float score; // 기본 제공 스코어
+    public float correctRate;
+    public float complexRate;
+    public float timeAvg;
+    public float score;
 
     public float matchingPath=0;
     public float accuracy = 0;
@@ -271,38 +275,62 @@ public class GameManager : MonoBehaviour
     {
         //float correctCount = dataManager.stageDataList.Count(StageData => StageData.isCorrect);
         //correctRate = (correctCount / totalQuestions) * 100;
-        score = 0;
+        correctRate = 0; // 정답률
+        complexRate = 0;
+        timeAvg = 0;
+        score = 0; // 점수
 
         for (int i = 0; i < totalQuestions; i++)
         {
             // 정확도 점수
-            if (dataManager.stageDataList[i].accuracy < 10) score += 0;
-            else if (dataManager.stageDataList[i].accuracy < 30) score += 3;
-            else if (dataManager.stageDataList[i].accuracy < 50) score += 5;
-            else if (dataManager.stageDataList[i].accuracy < 70) score += 7;
-            else if (dataManager.stageDataList[i].accuracy < 90) score += 9;
-            else score += 10;
+            if (dataManager.stageDataList[i].accuracy < 10) correctRate += 0;
+            else if (dataManager.stageDataList[i].accuracy < 30) correctRate += 3;
+            else if (dataManager.stageDataList[i].accuracy < 50) correctRate += 5;
+            else if (dataManager.stageDataList[i].accuracy < 70) correctRate += 7;
+            else if (dataManager.stageDataList[i].accuracy < 90) correctRate += 9;
+            else correctRate += 10;
 
             if (dataManager.stageDataList[i].isCorrect)
             {
                 // 복잡도 보너스 점수
-                if (i < 3) score += 1;
-                else if (i < 6) score += 3;
-                else score += 5;
+                if (i < 3) complexRate += 1;
+                else if (i < 6) complexRate += 3;
+                else complexRate += 5;
 
                 // 응답 시간 점수
                 Debug.Log(i + "번 걸린 시간: " + dataManager.stageDataList[i].takenTime);
-                if (dataManager.stageDataList[i].takenTime > 3.69) score += 0;
-                else if (dataManager.stageDataList[i].takenTime > 3.01) score += 0.5f;
-                else if (dataManager.stageDataList[i].takenTime > 2.51) score += 1;
-                else if (dataManager.stageDataList[i].takenTime > 2.01) score += 1.5f;
-                else if (dataManager.stageDataList[i].takenTime > 1.5) score += 2;
+                timeAvg += dataManager.stageDataList[i].takenTime;
             }
-            Debug.Log(i + "번: " + score);
         }
-
-        //avgTiming /= totalQuestions; // 걸린 시간 평균
-
+        // 정답률
+        correctRate /= 10;
+        Debug.Log("정답률: " + correctRate);
+        if (correctRate > 9) score += 10;
+        else if (correctRate > 7) score += 7;
+        else if (correctRate > 5) score += 5;
+        else if (correctRate > 3) score += 3;
+        else if (correctRate > 1) score += 1;
+        
+        // 복잡도
+        Debug.Log("복잡도: " + complexRate);
+        if (complexRate > 30) score += 14;
+        else if (complexRate > 27) score += 12;
+        else if (complexRate > 24) score += 11;
+        else if (complexRate > 21) score += 10;
+        else if (complexRate > 16) score += 8;
+        else if (complexRate > 11) score += 6;
+        else if (complexRate > 6) score += 4;
+        else if (complexRate > 1) score += 2;
+        
+        // 걸린 시간 평균
+        timeAvg /= 10;
+        Debug.Log("걸린 시간 평균: " + timeAvg);
+        if (timeAvg > 3.69) score += 0;
+        else if (timeAvg > 3.01) score += 0.5f;
+        else if (timeAvg > 2.51) score += 1;
+        else if (timeAvg > 2.01) score += 1.5f;
+        else if (timeAvg > 1.5) score += 2;
+        
         return score;
     }
     
@@ -353,20 +381,20 @@ public class GameManager : MonoBehaviour
 
         if (score > 25.27)
         {
-            messageTitle.text += "20대 (25.27점 ~ 26점)";
+            messageTitle.text += "20대";
 
             message.text += "길찾기 게임을 통해 기억력을 검사했어요!\n\n" +
                              "최고 수준의 기억력!\n" +
                              dataManager.nickName + "님은 20대 수준의 기억력을 가지고 있어요!\n" +
                              "한 번 본 경로를 거의 완벽하게 기억하고 재현할 수 있는 능력을 가지고 있네요.\n\n" +
                              "이 수준을 유지하려면?\n" +
-                             "- 경로를 기억할 때 시각적 이미지(나무, 건물, 표지판 등)를 떠올려 보세요.\n" +
-                             "- 이동한 경로를 나중에 종이에 그려보며 복습하는 것도 좋은 방법입니다!";
+                             "- 경로를 기억할 때 시각적 이미지 (예: 나무, 건물, 표지판 등)를 떠올려 보세요.\n" +
+                             "- 실제 이동한 경로를 종이에 그려보며 복습하는 것도 좋은 방법입니다!";
         }
 
         else if (score > 24.09)
         {
-            messageTitle.text += "30대 (24.09점 ~ 25.27점)";
+            messageTitle.text += "30대";
 
             message.text += "길찾기 게임을 통해 기억력을 검사했어요!\n\n" +
                              "우수한 기억력!\n" +
@@ -379,7 +407,7 @@ public class GameManager : MonoBehaviour
 
         else if (score > 19.41)
         {
-            messageTitle.text += "40대 (19.41점 ~ 24.09점)";
+            messageTitle.text += "40대";
 
             message.text += "길찾기 게임을 통해 기억력을 검사했어요!\n\n" +
                              "균형 잡힌 기억력!\n" +
@@ -392,7 +420,7 @@ public class GameManager : MonoBehaviour
 
         else if (score > 13.16)
         {
-            messageTitle.text += "50대 (13.16점 ~ 19.41점)";
+            messageTitle.text += "50대";
 
             message.text += "길찾기 게임을 통해 기억력을 검사했어요!\n\n" +
                              "훈련하면 더 좋아질 수 있어요!\n" +
@@ -432,8 +460,7 @@ public class GameManager : MonoBehaviour
                              "- 예를 들어, 집에서 편의점까지의 길을 기억한 뒤, 거리를 점점 늘려가는 방식이 효과적입니다!";
         }
 
-        score /= 152;
-
+        score /= 26; // 만점이 26점
         scoreText.text += score * 100;
         scoreGage.fillAmount = score;
         Debug.Log(score);
