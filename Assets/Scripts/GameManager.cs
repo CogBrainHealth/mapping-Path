@@ -461,7 +461,7 @@ public class GameManager : MonoBehaviour
         }
 
         score /= 26; // 만점이 26점
-        scoreText.text += score * 100;
+        scoreText.text += (score * 100).ToString("F2");
         scoreGage.fillAmount = score;
         Debug.Log(score);
 
