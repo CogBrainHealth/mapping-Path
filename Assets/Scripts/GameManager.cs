@@ -250,7 +250,8 @@ public class GameManager : MonoBehaviour
         accuracy = 0;
         matchingPath = 0;
 
-        for (int i = 0; i < userPath.Count; i++)
+        if (userPath.Count != correctPath.Count) return 0;
+        for (int i = 0; i < correctPath.Count; i++)
         {
             if (userPath[i] == correctPath[i])
             {
@@ -263,9 +264,7 @@ public class GameManager : MonoBehaviour
         return accuracy;
     }
 
-    public 
-
-    void UpdateQuestionUI()
+    public void UpdateQuestionUI()
     {
         if (questionStatusText != null)
             questionStatusText.text = $"{currentQuestion} / {totalQuestions}";
