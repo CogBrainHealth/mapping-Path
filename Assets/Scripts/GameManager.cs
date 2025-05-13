@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,6 +42,8 @@ public class GameManager : MonoBehaviour
 
     public int currentQuestion = 0; // 현재 문제 번호
 
+    public bool isGameStop;
+
     public float correctRate;
     public float complexRate;
     public float timeAvg;
@@ -77,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void Skip()
     {
+        Debug.Log("skip");
         gameIntroPanel.SetBool("isShow", false);
     }
 
@@ -169,14 +173,28 @@ public class GameManager : MonoBehaviour
         {
             currentQuestion++;
 
-            if (currentQuestion > 3 && currentQuestion <= 6)
+            if (currentQuestion < 4)
+            {
+                currentDifficulty = Difficulty.Easy;
+                Map2.SetActive(true);
+                Map3.SetActive(false);
+                Map4.SetActive(false);
+            }
+                
+            else if (currentQuestion > 3 && currentQuestion <= 6)
             {
                 currentDifficulty = Difficulty.Okay;
+                Map2.SetActive(false);
+                Map3.SetActive(true);
+                Map4.SetActive(false);
             }
 
-            else if (currentQuestion > 6)
+            else
             {
                 currentDifficulty = Difficulty.Medium;
+                Map2.SetActive(false);
+                Map3.SetActive(false);
+                Map4.SetActive(true);
             }
 
             ApplyDifficultySettings();
@@ -270,6 +288,20 @@ public class GameManager : MonoBehaviour
             questionStatusText.text = $"{currentQuestion} / {totalQuestions}";
     }
 
+    public void GameStop()
+    {
+        isGameStop = true;
+        timer.isTimerRunning = false;
+    }
+
+    public void GameReplay()
+    {
+        currentQuestion--;
+        StartNextQuestion();
+        timer.InitializeSlider();
+        isGameStop = false;
+    }
+
     public float Scoring()
     {
         //float correctCount = dataManager.stageDataList.Count(StageData => StageData.isCorrect);
@@ -344,36 +376,6 @@ public class GameManager : MonoBehaviour
         Map6.SetActive(false);
         pathGenerator.HidePoint();
         gameOutroPanel.SetActive(true);
-        //userPathData.SetActive(true);
-
-        //scoreText.text = $"{Scoring():F1}";
-        //Scoring();
-
-        //string scoreTextContent = $"닉네임: {dataManager.nickName}\n" +
-        //                          $"나이: {dataManager.Age}" +
-        //                          $" / 성별: {dataManager.Gender}\n\n" +
-        //                          $"정답률: {correctRate}\n" +
-        //                          $"avgTime: {avgTiming}\n\n";
-        //string pathTextContent = "";
-
-        //for (int i = 0; i < totalQuestions; i++)
-        //{
-        //    // scoreTextContent += $"Q{i+1}: {dataManager.stageDataList[i].attempts} | " +
-        //    scoreTextContent += $"Q{i+1} 걸린 시간: {dataManager.stageDataList[i].takenTime}\n";
-        //}
-
-        //foreach (var kvp in dataManager.userPaths)
-        //{
-        //    Debug.Log($"문제 {kvp.Key}:");
-        //    pathTextContent += $"문제{kvp.Key}\n";
-        //    foreach (var path in kvp.Value)
-        //    {
-        //        Debug.Log("경로: " + string.Join(" -> ", path));
-        //        pathTextContent += $"경로: {string.Join("-> ", path)}\n";
-        //    }
-        //}
-
-        //pathText.text = pathTextContent;
 
         Scoring();
         Debug.Log(score);

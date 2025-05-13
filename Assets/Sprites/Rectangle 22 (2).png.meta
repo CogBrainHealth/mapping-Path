@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9aff86023878b4a2cb32fc7abaac40e6
+guid: adc655b2815b6454d8d0833ad13a0951
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8421523799264747341
-    second: Ellipse 211 (1)_0
+      213: -7263114110330676898
+    second: Rectangle 22 (2)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,12 +139,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ellipse 211 (1)_0
+      name: Rectangle 22 (2)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1023
+        width: 2580
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d4f5caab6434fd470800000000000000
-      internalID: 8421523799264747341
+      spriteID: e59dc92c23c343b90800000000000000
+      internalID: -7263114110330676898
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Ellipse 211 (1)_0: 8421523799264747341
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

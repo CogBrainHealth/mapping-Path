@@ -8,8 +8,8 @@ public class Timer : MonoBehaviour
     public Slider timerSlider;
 
     public float timeLimit = 5f;
+    public bool isTimerRunning; // 타이머 상태 확인
     private float timeRemaining; // 남은 시간
-    private bool isTimerRunning = false; // 타이머 상태 확인
 
     void Start()
     {
@@ -28,8 +28,13 @@ public class Timer : MonoBehaviour
     // 타이머 시작
     public void StartTimer()
     {
-        timeRemaining = timeLimit;
-        isTimerRunning = true;
+        if (!gameManager.isGameStop)
+        {
+            Debug.Log("StartTimer");
+            timeRemaining = timeLimit;
+            isTimerRunning = true;
+            Debug.Log(isTimerRunning);
+        }
     }
 
     // 매 프레임 남은 시간을 업데이트

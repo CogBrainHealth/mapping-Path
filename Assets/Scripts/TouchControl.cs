@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class TouchControl : MonoBehaviour
 {
     public LineRenderer lineRenderer; // 사용자가 그린 정보 시각적 표현 
     public GameManager gameManager; // 사용자 입력 정보 전달 용도 참조 
     public pathGenerator pathGenerator; // 사용자가 입력 시작 시에 정답 경로 지우는 용도로 참조
+    public Timer timer;
     
     public bool isInputActive = false; // 입력 중인지 여부 
     public float detectionRadius = 0.5f; // Circle을 감지할 거리
@@ -22,7 +23,7 @@ public class TouchControl : MonoBehaviour
 
     void Update()
     {
-        if (pathGenerator.lineRenderer.positionCount == 0)
+        if (pathGenerator.lineRenderer.positionCount == 0 || timer.isTimerRunning)
         {
             // 터치 입력 처리
             if (Input.touchCount > 0)
