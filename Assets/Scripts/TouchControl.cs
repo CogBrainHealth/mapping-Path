@@ -23,7 +23,7 @@ public class TouchControl : MonoBehaviour
 
     void Update()
     {
-        if (pathGenerator.lineRenderer.positionCount == 0 || timer.isTimerRunning)
+        if (pathGenerator.lineRenderer.positionCount == 0)
         {
             // 터치 입력 처리
             if (Input.touchCount > 0)

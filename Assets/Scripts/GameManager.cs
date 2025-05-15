@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     public int currentQuestion = 0; // 현재 문제 번호
 
     public bool isGameStop;
+    private bool isPaused;
 
     public float correctRate;
     public float complexRate;
@@ -257,7 +258,7 @@ public class GameManager : MonoBehaviour
                 pathGenerator.userPoint.transform.localPosition
                     = pathGenerator.startPoint.transform.localPosition;
                 dataManager.OnIncorrectAnswer(PathsMatch(userPath, correctPath));
-                incorrectPop.SetActive(true);
+                // incorrectPop.SetActive(true);
             }
         }
     }
