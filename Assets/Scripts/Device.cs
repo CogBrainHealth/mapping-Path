@@ -9,11 +9,10 @@ public class Device : MonoBehaviour
 
     public void setRect()
     {
-        // ???? GameObject?? ?????? Camera ?????????? ???????? ????
         Camera cam = GetComponent<Camera>();
 
-        // ???? ???????? ?????? ?????? ???????? ????
-        Rect viewportRect = cam.rect;
+        cam.clearFlags = CameraClearFlags.SolidColor;
+        cam.backgroundColor = new Color32(124, 102, 255, 255);
 
         float deviceWidth = (float)Screen.width;
         float deviceHeight = (float)Screen.height;
@@ -34,10 +33,5 @@ public class Device : MonoBehaviour
             //Screen.SetResolution((int)deviceWidth, (int)newHeight, FullScreenMode.Windowed);
             cam.rect = new Rect(0f, (1f - newHeight) / 2f, 1f, newHeight);
         }
-    }
-
-    private void OnPreCull()
-    {
-        GL.Clear(true, true, new Color(250 / 256f, 203 / 256f, 103 / 256f, 1f));
     }
 }
