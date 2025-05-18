@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public GameObject userPathData;
     public GameObject gameOutroPanel;
     public GameObject incorrectPop;
+    public GameObject gameStopPanel;
     public Scrollbar scrollbar;
 
     public TextMeshProUGUI questionStatusText;
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameStopPanel.SetActive(false);
         gameIntroPanel.SetBool("isShow", true);
     }
 
